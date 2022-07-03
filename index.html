@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid Resources</title>
+    <meta http-equiv=“Pragma” content=”no-cache”>
+    <meta http-equiv=“Expires” content=”-1″>
+    <meta http-equiv=“CACHE-CONTROL” content=”NO-CACHE”>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <script src='logic.js'></script>
+     <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0SXP2MTQFS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0SXP2MTQFS');
+</script>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Covid Resources
+        </h1>
+    </header>
+    <main>
+        <div class='headline'>
+            <h2>
+                Search for resources in your city
+            </h2>
+        </div>
+        <div id="twtsrch">
+            <div id='tscell1' class="tscell">
+                <h2>Search by City :</h2>
+                <label for='city'>Enter your city name</label>
+                <label>
+                    <input onchange="disableres()" type='text' id='city' placeholder="Eg: Mumbai">
+                </label>
+            </div>
+
+            <div id='tscell3' class="tscell">
+                <h2>Tweets should NOT have the word :</h2>
+
+                <label>
+                    <input onchange="disableres()" id='not1' checked value='-"needed"' type="checkbox"> Needed
+                </label>
+
+                <label>
+                    <input onchange="disableres()" id='not2' checked value='-"required"' type="checkbox"> Required
+                </label>
+
+                <label>Other:
+                    <input onchange="disableres()" type="text" id='not3' placeholder="One item only">
+                </label>
+
+            </div>
+
+            <div id='tscell5' class="tscell">
+                <h2>Generate search</h2>
+                <button onclick="generate()">GO</button>
+            </div>
+
+            <div id='tscell2' class="tscell">
+                <h2>Search for :</h2>
+
+                <label>
+                    <input onchange="disableres()" id='check1' type="checkbox"> Beds
+                </label>
+
+                <label>
+                    <input onchange="disableres()" id='check2' type="checkbox"> ICU
+                </label>
+
+                <label>
+                    <input onchange="disableres()" id='check3' type="checkbox"> Oxygen
+                </label>
+
+                <label>
+                    <input onchange="disableres()" id='check4' type="checkbox"> Remedesivir
+                </label>
+
+                <label>
+                    <input onchange="disableres()" id='check5' type="checkbox"> Ventilator
+                </label>
+
+                <label>
+                    <input onchange="disableres()" id='check6' type="checkbox"> Febiflu
+                </label>
+
+                <label>
+                    <input onchange="disableres()" id='check7' type="checkbox"> Favipiravir
+                </label>
+
+                <label>
+                    <input onchange="disableres()" id='check8' type="checkbox"> Tocilizumab
+                </label>
+
+                <label>
+                    <input onchange="disableres()" id='check9' type="checkbox"> Plasma
+                </label>
+
+                <label>
+                    <input onchange="disableres()" id='check10' type="checkbox"> Tiffin
+                </label>
+
+                <label>Other :
+                    <input onchange="disableres()" type="text" id='check11' placeholder="One item only">
+                </label>
+
+            </div>
+
+            <div id='tscell4' class="tscell">
+                <h2>
+                    Include and Exclude :
+                </h2>
+
+                <label>
+                    <input onchange="disableres()" id='include' value='verified' checked type='checkbox'> Show
+                    <b>verified</b> tweets only<br />
+                    (Only those tweets which includes <b>verified</b> in them)
+                </label>
+
+                <label>
+                    <input onchange="disableres()" id='exclude' value='-"unverified"+-"not+verified"' checked
+                        type='checkbox'> Exclude <b>unverified</b>
+                    tweets<br />
+                    (Tweet should not contain <b>not verified</b> and <b>unverified</b>)
+                </label>
+            </div>
+
+            <div id='reddiv' class="tscell">
+                <h2>
+                    Quick Links :
+                </h2>
+                <ul>
+                    <li><a target='_blank'
+                            href='https://twitter.com/search?q=verified+Mumbai+%28bed+OR+beds+OR+ICU%29+-%22unverified%22+-%22not+verified%22+-%22needed%22+-%22required%22&f=live'>Mumbai
+                            - ICU and Beds</a></li>
+                </ul>
+                <ul>
+                    <li><a target='_blank'
+                            href='https://twitter.com/search?q=verified+Mumbai+%28oxygen%29+-%22unverified%22+-%22not+verified%22+-%22needed%22+-%22required%22&f=live'>Mumbai
+                            - Oxygen</a></li>
+                </ul>
+                <ul>
+                    <li><a target='_blank'
+                            href='https://twitter.com/search?q=verified+Mumbai+%28plasma%29+-%22unverified%22+-%22not+verified%22+-%22needed%22+-%22required%22&f=live'>Mumbai
+                            - Plasma</a></li>
+                </ul>
+                <ul>
+                    <li><a target='_blank'
+                            href='https://twitter.com/search?q=verified+Mumbai+%28remedesivir%29+-%22unverified%22+-%22not+verified%22+-%22needed%22+-%22required%22&f=live'>Mumbai
+                            - Remedesivir</a></li>
+                </ul>
+                <ul>
+                    <li><a target='_blank'
+                            href='https://twitter.com/search?q=verified+Delhi+%28bed+OR+beds+OR+ICU%29+-%22unverified%22+-%22not+verified%22+-%22needed%22+-%22required%22&f=live'>Delhi
+                            - ICU and Beds</a></li>
+                </ul>
+                <ul>
+                    <li><a target='_blank'
+                            href='https://twitter.com/search?q=verified+Delhi+%28oxygen%29+-%22unverified%22+-%22not+verified%22+-%22needed%22+-%22required%22&f=live'>Delhi
+                            - Oxygen</a></li>
+                </ul>
+                <ul>
+                    <li><a target='_blank'
+                            href='https://twitter.com/search?q=verified+Delhi+%28plasma%29+-%22unverified%22+-%22not+verified%22+-%22needed%22+-%22required%22&f=live'>Delhi
+                            - Plasma</a></li>
+                </ul>
+                <ul>
+                    <li><a target='_blank'
+                            href='https://twitter.com/search?q=verified+Banglore+%28bed+OR+beds+OR+ICU%29+-%22unverified%22+-%22not+verified%22+-%22needed%22+-%22required%22&f=live'>Banglore
+                            - ICU and Beds</a></li>
+                </ul>
+                <ul>
+                    <li><a target='_blank'
+                            href='https://twitter.com/search?q=verified+Banglore+%28oxygen%29+-%22unverified%22+-%22not+verified%22+-%22needed%22+-%22required%22&f=live'>Banglore
+                            - Oxygen</a></li>
+                </ul>
+                <ul>
+                    <li><a target='_blank'
+                            href='https://twitter.com/search?q=verified+Banglore+%28plasma%29+-%22unverified%22+-%22not+verified%22+-%22needed%22+-%22required%22&f=live'>Banglore
+                            - Plasma</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div onclick='window.open("tel:+911123978046");' id="hldiv">
+
+            <h1>
+                National Covid Helpline : +91-11-23978046
+            </h1>
+        </div>
+
+        <div class='headline'>
+            <h2>
+                About the Vaccine
+            </h2>
+        </div>
+        <div id="vaccineinfo">
+            <div class='vaccell'>
+                <h2>
+                    Vaccines
+                </h2>
+                <h3>
+                    Vaccines available in India
+                </h3>
+                <ul>
+                    <li>Sputnik V</li>
+                    <li>Covaxin</li>
+                    <li>Covishield</li>
+                </ul>
+            </div>
+
+            <div class="vaccell">
+                <h2>
+                    Pre-register
+                </h2>
+                <h3>
+                    Pre-register for Vaccination
+                </h3>
+                <p>
+                    CO-Win portal helps you to locate and pre-register for an appointment at the vaccination centre
+                </p>
+            <button onclick="window.open('https://selfregistration.cowin.gov.in/')">GO</button>
+            </div>
+            <div class="vaccell">
+                <h2>
+                    Centres
+                </h2>
+                <h3>
+                    Vaccination centres near me
+                </h3>
+                <p>
+                    Use the below button to get a map and other information about the nearest vaccination centres 
+                </p>
+                <button onclick="window.open('https://www.google.com/maps/search/vaccination+centres+near+me/')">Search</button>
+            </div>
+        </div>
+
+
+
+        <div class='headline'>
+            <h2>
+                Donate to trusted organisations
+            </h2>
+        </div>
+
+        <div id="donations">
+            <div class="doncell">
+                <h2>
+                    Donate for food
+                </h2>
+                <h3>
+                    Akshaya Patra's Covid-19 Relief Service
+                </h3>
+                <p>
+                    Through COVID-19 Relief Efforts, Akshaya Patra has served 5,99,63,820 cooked meals and delivered
+                    15,64,776 essential grocery kits since the first day of the nationwide lockdown
+                </p>
+                <button onclick="window.open('https://www.akshayapatra.org/covid-relief-services')">Donate</button>
+            </div>
+            <div class="doncell">
+                <h2>
+                    Donate for Elders
+                </h2>
+                <h3>
+                    HelpAge India - Covid 19
+                </h3>
+                <p>
+                    Elders are at high risk and more vulnerable in COVID 19 more so if they are 80 years or above. Many
+                    Elders are struggling to survive. Many have lost their small income, many more are living with
+                    families whose income has stopped. Your contribution can help an elder survive and bring hope in
+                    this uncertain time.
+                </p>
+                <button onclick="window.open('https://www.helpageindia.org/covid-19/')">Donate</button>
+            </div>
+            <div class="doncell">
+                <h2>
+                    Donate for Health Workers
+                </h2>
+                <h3>
+                    Give India - #IndiaFightsCorona
+                </h3>
+                <p>
+                    Your contribution will help hospitals tackle the situation and protect their healthcare workers as
+                    they treat Covid-infected patients. You can help provide N95 Masks, PPE Kits, 3ply masks, bedsheet,
+                    hand sanitiser (1 litre) and refill oxygen cylinders at Covid care centres.
+                </p>
+                <button
+                    onclick="window.open('https://indiafightscorona.giveindia.org/healthcare-heroes/')">Donate</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Made with ❤️ by <a target='_blank' href='https://instagram.com/yashdidit'>Yash</a></p>
+    </footer>
+</body>
+
+</html>
